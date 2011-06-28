@@ -1,6 +1,34 @@
-External tools that help editing coffeescript files in gedit editor
+External tools that help editing <strong>coffeescript</strong> files in <strong>gedit</strong> editor
 
-1. Compile coffee file or code snippet
-2. List coffee file or code snippet in javascript
+1. Compile coffee code snippet or all if nothing is selected
+2. Print coffee code snippet or all in javascript
 
+Scripts test gedit $GEDIT_SELECTED_TEXT variable to see if some text is selected. If nothing is selected then all text is handled. Output goes to gedit bottom pane.
 
+See screenshots at wiki, here are the scripts.
+
+Compile script:
+<pre><code>
+#!/bin/sh
+# Compile selected text or file if nothing is selected
+#   
+if [ -n "$GEDIT_SELECTED_TEXT" ]
+then
+  coffee -e "$GEDIT_SELECTED_TEXT"
+else
+  coffee "$GEDIT_CURRENT_DOCUMENT_NAME"
+fi
+</code></pre>
+
+This script print JavaScript
+<pre><code>
+#!/bin/sh
+# Print selected text or file if nothing is selected
+#   
+if [ -n "$GEDIT_SELECTED_TEXT" ]
+then
+  coffee -ep "$GEDIT_SELECTED_TEXT"
+else
+  coffee -p "$GEDIT_CURRENT_DOCUMENT_NAME"
+fi
+</code></pre>
