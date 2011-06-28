@@ -1,4 +1,4 @@
-External tools that help editing <strong>coffeescript</strong> files in <strong>gedit</strong> editor
+External tools that help editing files in gedit editor
 
 1. Compile coffee code snippet or all if nothing is selected
 2. Print coffee code snippet or all in javascript
@@ -8,7 +8,7 @@ Scripts test gedit $GEDIT_SELECTED_TEXT variable to see if some text is selected
 See screenshots at wiki, here are the scripts.
 
 Compile script:
-<pre><code>
+
 #!/bin/sh
 # Compile selected text or file if nothing is selected
 #   
@@ -18,10 +18,9 @@ then
 else
   coffee "$GEDIT_CURRENT_DOCUMENT_NAME"
 fi
-</code></pre>
 
 This script print JavaScript
-<pre><code>
+
 #!/bin/sh
 # Print selected text or file if nothing is selected
 #   
@@ -31,4 +30,4 @@ then
 else
   coffee -p "$GEDIT_CURRENT_DOCUMENT_NAME"
 fi
-</code></pre>
+
